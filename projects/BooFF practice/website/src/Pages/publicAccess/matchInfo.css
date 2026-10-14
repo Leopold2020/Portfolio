@@ -1,0 +1,16 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    /* border:  solid #0d0606; */
+}
+
+.table tr {
+    /* background-color: #e1e1e1; */
+    border: 1px solid #0d0606;
+    /* height: 1.8rem; */
+}
+
+.table td {
+    padding:0.2rem;
+    border: 1px solid #000000;
+}

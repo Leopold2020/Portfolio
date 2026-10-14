@@ -1,0 +1,252 @@
+=Level 3 vital articles=
+{{Vital article count|998|quota=1000}}
+==People==
+{{Vital article count|99}}
+{{center|{{Clickable button 2|Random Level 3 vital article in People|class=mw-ui-progressive|url=https://randomincategory.toolforge.org/?category=Wikipedia%20level-3%20vital%20articles%20in%20People&server=en.wikipedia.org&cmnamespace=&cmtype=&returntype=subject}}}}
+{{center|{{Clickable button 2|Wikipedia:Vital articles/Level/4/People|Expanded list}}}}
+{{Col-begin}}
+{{Col-break|width=30%}}
+=== Leaders and politicians ===
+{{Vital article count|27}}
+* {{Icon|GA}} [[Hammurabi]]
+* {{Icon|B}} {{Icon|DGA}} [[Ramesses II]]
+* {{Icon|B}} {{Icon|DGA}} [[Cyrus the Great]]
+* {{Icon|GA}} [[Alexander the Great]]
+* {{Icon|B}} [[Ashoka]]
+* {{Icon|B}} [[Qin Shi Huang]]
+* {{Icon|B}} {{Icon|FFA}} [[Julius Caesar]]
+* {{Icon|FA}} [[Cleopatra]]
+* {{Icon|FA}} [[Augustus]]
+* {{Icon|C}} [[Wu Zetian]]
+* {{Icon|GA}} [[Charlemagne]]
+* {{Icon|FA}} [[Genghis Khan]]
+* {{Icon|B}} [[Mansa Musa]]
+* {{Icon|C}} [[Timur]]
+* {{Icon|B}} {{Icon|FFA}} [[Suleiman the Magnificent]]
+* {{Icon|B}} [[Akbar]]
+* {{Icon|FA}} [[Elizabeth I]]
+* {{Icon|C}} [[Catherine the Great]]
+* {{Icon|FA}} [[George Washington]]
+* {{Icon|B}} [[Napoleon]]
+* {{Icon|GA}} [[Simón Bolívar]]
+* {{Icon|FA}} [[Abraham Lincoln]]
+* {{Icon|GA}} {{Icon|FFA}} [[Mahatma Gandhi]]
+* {{Icon|GA}} [[Joseph Stalin]]
+* {{Icon|GA}} [[Adolf Hitler]]
+* {{Icon|B}} [[Mao Zedong]]
+* {{Icon|FA}} [[Nelson Mandela]]
+
+===Explorers ===
+{{Vital article count|1}}
+* {{Icon|B}} [[Christopher Columbus]]
+
+===Artists ===
+{{Vital article count|6}}
+* {{Icon|GA}} {{Icon|FFA}} [[Leonardo da Vinci]]
+* {{Icon|B}} [[Michelangelo]]
+* {{Icon|GA}} {{Icon|FFA}} [[Rembrandt]]
+* {{Icon|B}} [[Hokusai]]
+* {{Icon|FA}} [[Vincent van Gogh]]
+* {{Icon|B}} [[Pablo Picasso]]
+{{Col-break|width=36%}}
+
+===Philosophers and social scientists ===
+{{Vital article count|15}}
+* {{Icon|B}} [[Confucius]]
+* {{Icon|B}} {{Icon|DGA}} [[Laozi]]
+* {{Icon|GA}} [[Socrates]]
+* {{Icon|B}} [[Plato]]
+* {{Icon|GA}} [[Aristotle]]
+* {{Icon|B}} [[Cicero]]
+* {{Icon|C}} [[Ibn Khaldun]]
+* {{Icon|B}} [[Niccolò Machiavelli]]
+* {{Icon|B}} [[René Descartes]]
+* {{Icon|B}} [[John Locke]]
+* {{Icon|B}} [[Adam Smith]]
+* {{Icon|B}} [[Immanuel Kant]]
+* {{Icon|FA}} [[Mary Wollstonecraft]]
+* {{Icon|GA}} [[Karl Marx]]
+* {{Icon|B}} {{Icon|DGA}} [[Sigmund Freud]]
+
+===Writers ===
+{{Vital article count|10}}
+* {{Icon|B}} [[Homer]]
+* {{Icon|B}} [[Virgil]]
+* {{Icon|B}} [[Li Bai]]
+* {{Icon|FA}} [[Murasaki Shikibu]]
+* {{Icon|B}} [[Rumi]]
+* {{Icon|B}} [[Dante Alighieri]]
+* {{Icon|B}} [[Miguel de Cervantes]]
+* {{Icon|FA}} [[William Shakespeare]]
+* {{Icon|B}} [[Leo Tolstoy]]
+* {{Icon|B}} {{Icon|FFA}} [[Rabindranath Tagore]]
+
+===Musicians ===
+{{Vital article count|6}}
+* {{Icon|GA}} [[Johann Sebastian Bach]]
+* {{Icon|B}} {{Icon|FFA}} [[Wolfgang Amadeus Mozart]]
+* {{Icon|B}} [[Ludwig van Beethoven]]
+* {{Icon|B}} {{Icon|FFA}} [[Louis Armstrong]]
+* {{Icon|FA}} [[The Beatles]]
+* {{Icon|FA}} [[Michael Jackson]]
+
+===Filmmakers ===
+{{Vital article count|2}}
+* {{Icon|FA}} [[Charlie Chaplin]]
+* {{Icon|FA}} [[Walt Disney]]
+{{Col-break|width=34%}}
+
+===Scientists and inventors ===
+{{Vital article count|18}}
+* {{Icon|B}} {{Icon|FFA}} [[Hippocrates]]
+* {{Icon|B}} [[Avicenna]]
+* {{Icon|FA}} [[Shen Kuo]]
+* {{Icon|B}} [[Johannes Gutenberg]]
+* {{Icon|B}} [[Nicolaus Copernicus]]
+* {{Icon|B}} {{Icon|FFA}} [[Galileo Galilei]]
+* {{Icon|GA}} {{Icon|FFA}} [[Isaac Newton]]
+* {{Icon|B}} {{Icon|DGA}} [[Antoine Lavoisier]]
+* {{Icon|B}} [[Michael Faraday]]
+* {{Icon|FA}} [[Charles Darwin]]
+* {{Icon|B}} [[Florence Nightingale]]
+* {{Icon|B}} [[Louis Pasteur]]
+* {{Icon|GA}} [[James Clerk Maxwell]]
+* {{Icon|B}} [[Dmitri Mendeleev]]
+* {{Icon|GA}} [[Thomas Edison]]
+* {{Icon|GA}} [[Nikola Tesla]]
+* {{Icon|GA}} [[Marie Curie]]
+* {{Icon|GA}} {{Icon|FFA}} [[Albert Einstein]]
+
+===Mathematicians ===
+{{Vital article count|7}}
+* {{Icon|B}} [[Euclid]]
+* {{Icon|FA}} [[Archimedes]]
+* {{Icon|B}} [[Al-Khwarizmi]]
+* {{Icon|FA}} [[Leonhard Euler]]
+* {{Icon|GA}} {{Icon|FFA}} [[Carl Friedrich Gauss]]
+* {{Icon|B}} [[Kurt Gödel]]
+* {{Icon|GA}} [[Alan Turing]]
+
+===Religious figures ===
+{{Vital article count|6}}
+* {{Icon|B}} [[The Buddha]]
+* {{Icon|FA}} [[Jesus]]
+* {{Icon|B}} {{Icon|DGA}} [[Muhammad]]
+* {{Icon|B}} [[Ali]]
+* {{Icon|GA}} {{Icon|FFA}} [[Adi Shankara]]
+* {{Icon|C}} {{Icon|DGA}} [[Martin Luther]]
+
+===Businesspeople ===
+{{Vital article count|1}}
+* {{Icon|B}} [[Henry Ford]]
+{{Col-end}}
+
+==History ==
+{{Vital article count|80}}
+{{center|{{Clickable button 2|Random Level 3 vital article in History|class=mw-ui-progressive|url=https://randomincategory.toolforge.org/?category=Wikipedia%20level-3%20vital%20articles%20in%20History&server=en.wikipedia.org&cmnamespace=&cmtype=&returntype=subject}}}}
+{{center|{{Clickable button 2|Wikipedia:Vital articles/Level/4/History|Expanded list}}}}
+{{Col-begin}}
+{{Col-break|width=35%}}
+===History: General===
+{{Vital article count|4}}
+* {{Icon|FA}} '''[[History]]''' ([[Wikipedia:Vital articles/Level 2|Level 2]])
+** {{Icon|GA}} '''''[[Human history]]''''' ([[Wikipedia:Vital articles/Level 1|Level 1]])
+* {{Icon|C}} '''[[Civilization]]''' ([[Wikipedia:Vital articles/Level 2|Level 2]])
+* {{Icon|C}} {{Icon|DGA}} [[Archaeology]]
+
+===History by region ===
+{{Vital article count|5}}
+* {{Icon|C}} [[History of Africa]]
+* {{Icon|C}} [[History of Asia]]
+* {{Icon|C}} [[History of Europe]]
+* {{Icon|C}} [[History of North America]]
+* {{Icon|C}} [[History of South America]]
+
+===History by subject ===
+{{Vital article count|12}}
+* {{Icon|B}} {{Icon|DGA}} [[History of science]]
+* {{Icon|C}} [[History of art]] 
+* {{Icon|GA}} [[History of agriculture]]
+* {{Icon|C}} [[History of architecture]]
+* {{Icon|B}} [[History of literature]]
+* {{Icon|B}} [[History of mathematics]]
+* {{Icon|B}} [[History of medicine]]
+* {{Icon|B}} [[History of music]]
+* {{Icon|GA}} [[History of philosophy]]
+* {{Icon|C}} [[History of religion]]
+* {{Icon|C}} [[History of technology]]
+* {{Icon|C}} [[Military history]]
+
+===Prehistory ===
+{{Vital article count|3}}
+* {{Icon|B}} '''[[Prehistory]]''' ([[Wikipedia:Vital articles/Level 2|Level 2]])
+** {{Icon|C}} {{Icon|DGA}} [[Stone Age]]
+*** {{Icon|B}} [[Neolithic Revolution]]
+{{Col-break|width=35%}}
+
+===Ancient history ===
+{{Vital article count|18}}
+* {{Icon|B}} '''[[Ancient history]]''' ([[Wikipedia:Vital articles/Level 2|Level 2]])
+** {{Icon|C}} [[Bronze Age]]
+*** {{Icon|B}} {{Icon|FFA}} [[Ancient Egypt]]
+*** {{Icon|B}} {{Icon|FFA}} [[Indus Valley Civilisation]]
+*** {{Icon|B}} [[Mesopotamia]]
+**** {{Icon|B}} [[Sumer]]
+*** {{Icon|B}} [[Phoenicia]]
+** {{Icon|B}} [[Iron Age]]
+*** {{Icon|B}} [[Ancient Greece]]
+*** {{Icon|B}} [[Ancient Rome]]
+*** {{Icon|B}} [[Achaemenid Empire]]
+*** {{Icon|B}} [[Gupta Empire]]
+*** {{Icon|FA}} [[Han dynasty]]
+*** {{Icon|C}} [[Silk Road]]
+** {{Icon|C}} [[Pre-Columbian era]]
+*** {{Icon|C}} [[Andean civilizations]]
+*** {{Icon|B}} [[Mesoamerica]]
+**** {{Icon|FA}} [[Maya civilization]]
+
+===Post-classical history ===
+{{Vital article count|14}}
+* {{Icon|B}} '''[[Post-classical history]]''' ([[Wikipedia:Vital articles/Level 2|Level 2]])
+** {{Icon|C}} {{Icon|DGA}} [[Aztecs]]
+** {{Icon|B}} {{Icon|DGA}} [[Inca Empire]]
+** {{Icon|B}} [[Islamic Golden Age]]
+** {{Icon|B}} [[Mali Empire]]
+** {{Icon|B}} {{Icon|FFA}} [[Middle Ages]]
+*** {{Icon|B}} {{Icon|DGA}} [[Black Death]]
+*** {{Icon|B}} {{Icon|FFA}} [[Byzantine Empire]]
+*** {{Icon|GA}} {{Icon|A}} [[Crusades]]
+*** {{Icon|B}} [[Holy Roman Empire]]
+*** {{Icon|C}} [[Viking Age]]
+** {{Icon|B}} [[Mongol Empire]]
+** {{Icon|B}} {{Icon|DGA}} [[Ottoman Empire]]
+** {{Icon|FA}} [[Tang dynasty]]
+{{Col-break|width=30%}}
+
+===Modern history ===
+{{Vital article count|24}}
+* {{Icon|B}} '''[[Early modern period]]''' ([[Wikipedia:Vital articles/Level 2|Level 2]])
+** {{Icon|B}} {{Icon|DGA}} [[Renaissance]]
+** {{Icon|C}} [[Age of Discovery]]
+** {{Icon|C}} [[Atlantic slave trade]]
+** {{Icon|B}} [[Spanish Empire]]
+** {{Icon|B}} [[Reformation]]
+** {{Icon|B}} [[Mughal Empire]]
+** {{Icon|B}} [[Scientific Revolution]]
+** {{Icon|B}} [[Age of Enlightenment]]
+* {{Icon|C}} '''[[Modern era]]''' ([[Wikipedia:Vital articles/Level 2|Level 2]])
+** {{Icon|B}} {{Icon|FFA}} [[British Empire]]
+** {{Icon|B}} {{Icon|DGA}} [[American Revolution]]
+** {{Icon|B}} [[French Revolution]]
+** {{Icon|C}} {{Icon|DGA}} [[Industrial Revolution]]
+** {{Icon|C}} [[Scramble for Africa]]
+** {{Icon|B}} {{Icon|FFA}} [[World War I]]
+** {{Icon|B}} {{Icon|DGA}} [[Soviet Union]]
+** {{Icon|B}} [[Great Depression]]
+** {{Icon|GA}} [[World War II]]
+** {{Icon|C}} [[Contemporary history]]
+** {{Icon|B}} [[Decolonization]]
+** {{Icon|B}} {{Icon|DGA}} [[Cold War]]
+** {{Icon|C}} [[Information Age]]
+** {{Icon|C}} {{Icon|DGA}} [[Globalization]]
+{{Col-end}}

@@ -1,0 +1,59 @@
+.company-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40ch;
+    min-height: 40rem;
+    max-height: fit-content;
+    margin: auto;
+    margin-top: 2%;
+    padding: 1.2%;
+    border: solid 1px #c0edff;
+    background-color: rgba(20, 20, 20, 0.5);
+}
+
+.company-div{
+    margin-top: 2%;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.company-text{
+    float: left;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: #c0f6ff;
+    align-items: center;
+    margin: 0.5rem;
+    background-color: rgba(20, 20, 20, 0.5);
+    padding: 0.5rem;
+}
+
+
+
+.comp-button{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.detail-text{
+    text-decoration: none;
+    color: #c0f6ff;
+}
+
+.company-backround {
+    display: flex;
+    margin-top: 0.6rem;
+    height: 1.6rem;
+    border: solid 1px #c0edff;
+    background-color: rgba(20, 20, 20, 0.5);
+    color: #c0f6ff;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: medium;
+  }

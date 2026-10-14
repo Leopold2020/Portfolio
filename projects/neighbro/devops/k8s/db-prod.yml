@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: ${STACK_NAME}-db
+spec:
+  serviceName: ${STACK_NAME}-db
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ${STACK_NAME}-db
+  template:
+    metadata:
+      labels:
+        app: ${STACK_NAME}-db
+    spec:
+      containers:
+        - name: db
+          image: postgres:18
+          env:
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  name: ${STACK_NAME}-db-secret
+                  key: POSTGRES_DB
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: ${STACK_NAME}-db-secret
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: ${STACK_NAME}-db-secret
+                  key: POSTGRES_PASSWORD
+          volumeMounts:
+            - name: pgdata
+              mountPath: /var/lib/postgresql
+  volumeClaimTemplates:
+    - metadata:
+        name: pgdata
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ${STACK_NAME}-db
+spec:
+  selector:
+    app: ${STACK_NAME}-db
+  ports:
+    - port: 5432
+      targetPort: 5432

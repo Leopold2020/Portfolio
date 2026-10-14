@@ -1,0 +1,44 @@
+.details-div {
+  display: flex;
+  flex-direction: column;
+  width: 35rem;
+  min-height: 40rem;
+  height: fit-content;
+  margin: auto;
+  align-items: center;
+  border: solid 1.5px #c0edff;
+  background-color: #333;
+  color: #c0edff;
+}
+
+.details-title {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 35px;
+  text-align: center;
+}
+
+.details-comp-name {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 26px;
+  text-align: center;
+}
+
+.info-div{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin-bottom: 1rem;
+  overflow-wrap: break-word;
+  border: solid 1.5px #c0edff;
+  padding: 0.7rem;
+}
+
+@media screen and (max-width: 600px) {
+  .details-div {
+    margin-top: 2rem;
+    width: 90%;
+  }
+  
+}

@@ -1,0 +1,7 @@
+packages:
+  - frontend
+  - backend
+
+allowBuilds:
+  bcrypt: true
+  esbuild: true

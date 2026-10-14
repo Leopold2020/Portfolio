@@ -1,0 +1,82 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${STACK_NAME}-web
+spec:
+  replicas: ${WEB_REPLICAS}
+  selector:
+    matchLabels:
+      app: ${STACK_NAME}-web
+  template:
+    metadata:
+      labels:
+        app: ${STACK_NAME}-web
+    spec:
+      automountServiceAccountToken: false
+      imagePullSecrets:
+        - name: registry-secret
+      containers:
+        - name: web
+          image: ${CI_REGISTRY_IMAGE}:${IMAGE_TAG}
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: SERVER_PORT
+              value: "3000"
+            - name: NODE_ENV
+              value: production
+            - name: CORS_ORIGIN
+              value: https://${HOST}
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: ${STACK_NAME}-db-secret
+                  key: DATABASE_URL
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: ${STACK_NAME}-app-secret
+                  key: JWT_SECRET
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          securityContext:
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 1000
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+      volumes:
+        - name: tmp
+          emptyDir: {}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ${STACK_NAME}-web
+  labels:
+    app: ${STACK_NAME}-web
+spec:
+  selector:
+    app: ${STACK_NAME}-web
+  ports:
+    - name: http
+      port: 3000
+      targetPort: 3000

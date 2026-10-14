@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.10",
+    "concurrently": "^9.2.1"
+  },
+  "name": "to-be-decided",
+  "private": true,
+  "scripts": {
+    "db:generate": "pnpm --filter backend db:generate",
+    "db:migrate": "pnpm --filter backend db:migrate",
+    "db:push": "pnpm --filter backend db:push",
+    "db:stop": "pnpm --filter backend db:stop",
+    "db:studio": "pnpm --filter backend db:studio",
+    "dev": "concurrently --names 'BACKEND,FRONTEND' --prefix-colors 'green,blue' 'pnpm --filter backend dev' 'pnpm --filter frontend dev'",
+    "dev:full": "pnpm --filter backend db && pnpm run dev",
+    "lint-format": "pnpm -r lint-format",
+    "setup": "pnpm --filter backend setup"
+  },
+  "workspaces": [
+    "frontend",
+    "backend"
+  ]
+}

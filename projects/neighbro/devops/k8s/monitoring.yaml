@@ -1,0 +1,141 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: ${STACK_NAME}
+  labels:
+    release: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: ${STACK_NAME}-web
+  endpoints:
+    - port: http
+      path: /metrics
+      interval: 15s
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: ${STACK_NAME}
+  labels:
+    release: monitoring
+spec:
+  groups:
+    - name: ${STACK_NAME}.rules
+      rules:
+        - alert: NeighbroHighErrorRate
+          expr: |
+            sum(rate(http_requests_total{namespace="doe25-group-6",status=~"5..",handler!="/metrics"}[5m]))
+              /
+            sum(rate(http_requests_total{namespace="doe25-group-6",handler!="/metrics"}[5m]))
+              > 0.05
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: "neighbro 5xx rate above 5% (5m)"
+            description: "More than 5% of requests are returning 5xx for the last 5 minutes."
+        - alert: NeighbroNoTraffic
+          expr: |
+            sum(rate(http_requests_total{namespace="doe25-group-6",handler!="/metrics"}[10m])) == 0
+          for: 15m
+          labels:
+            severity: info
+          annotations:
+            summary: "neighbro has received no traffic for 15m"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: neighbro-dashboard
+  labels:
+    grafana_dashboard: "1"
+data:
+  neighbro.json: |
+    {
+      "title": "neighbro (doe25-group-6)",
+      "uid": "neighbro-doe25-group-6",
+      "schemaVersion": 39,
+      "time": { "from": "now-1h", "to": "now" },
+      "refresh": "30s",
+      "tags": ["chas-academy", "doe25", "group-6"],
+      "panels": [
+        {
+          "id": 1,
+          "type": "timeseries",
+          "title": "Request rate (req/s) by handler",
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 },
+          "targets": [
+            {
+              "expr": "sum by (handler) (rate(http_requests_total{namespace=\"doe25-group-6\",handler=~\"/api/.*\"}[1m]))",
+              "legendFormat": "{{handler}}",
+              "refId": "A"
+            }
+          ],
+          "fieldConfig": { "defaults": { "unit": "reqps" } }
+        },
+        {
+          "id": 2,
+          "type": "timeseries",
+          "title": "Error rate (5xx, share of total)",
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 },
+          "targets": [
+            {
+              "expr": "sum(rate(http_requests_total{namespace=\"doe25-group-6\",status=~\"5..\",handler!=\"/metrics\"}[5m])) / clamp_min(sum(rate(http_requests_total{namespace=\"doe25-group-6\",handler!=\"/metrics\"}[5m])), 1)",
+              "legendFormat": "5xx ratio",
+              "refId": "A"
+            }
+          ],
+          "fieldConfig": { "defaults": { "unit": "percentunit", "min": 0 } }
+        },
+        {
+          "id": 3,
+          "type": "timeseries",
+          "title": "Latency p95 (s) by handler",
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "gridPos": { "h": 8, "w": 12, "x": 0, "y": 8 },
+          "targets": [
+            {
+              "expr": "histogram_quantile(0.95, sum by (handler, le) (rate(http_request_duration_seconds_bucket{namespace=\"doe25-group-6\",handler=~\"/api/.*\"}[5m])))",
+              "legendFormat": "{{handler}}",
+              "refId": "A"
+            }
+          ],
+          "fieldConfig": { "defaults": { "unit": "s" } }
+        },
+        {
+          "id": 4,
+          "type": "stat",
+          "title": "Requests last 5m by status",
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "gridPos": { "h": 8, "w": 12, "x": 12, "y": 8 },
+          "targets": [
+            {
+              "expr": "sum by (status) (increase(http_requests_total{namespace=\"doe25-group-6\",handler!=\"/metrics\"}[5m]))",
+              "legendFormat": "{{status}}",
+              "refId": "A"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "type": "table",
+          "title": "Failed requests by endpoint (last 5m)",
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "gridPos": { "h": 8, "w": 24, "x": 0, "y": 16 },
+          "targets": [
+            {
+              "expr": "sum by (handler, status) (increase(http_requests_total{namespace=\"doe25-group-6\",handler=~\"/api/.*\",status!~\"2..\"}[5m])) > 0",
+              "legendFormat": "{{handler}} {{status}}",
+              "refId": "A",
+              "instant": true,
+              "format": "table"
+            }
+          ],
+          "options": { "sortBy": [{ "displayName": "Value", "desc": true }] },
+          "transformations": [{ "id": "organize", "options": { "excludeByName": { "Time": true, "__name__": true, "job": true, "instance": true } } }]
+        }
+      ]
+    }

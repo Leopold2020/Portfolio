@@ -1,0 +1,161 @@
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS
+      when: never
+    - if: $CI_COMMIT_BRANCH
+
+stages:
+  - lint
+  - test
+  - build
+  - deploy
+  - stop
+
+include:
+  - template: Security/SAST.gitlab-ci.yml
+  - template: Security/Secret-Detection.gitlab-ci.yml
+
+variables:
+  NAMESPACE: doe25-group-6
+  DOMAIN: cc.k3s.chas-lab.dev
+
+lint-frontend:
+  stage: lint
+  image: node:22
+  script:
+    - corepack enable pnpm
+    - pnpm install --frozen-lockfile
+    - pnpm exec biome ci --error-on-warnings frontend/
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event" || $CI_PIPELINE_SOURCE == "push"
+      changes:
+        - frontend/**/*
+        - pnpm-lock.yaml
+
+lint-backend:
+  stage: lint
+  image: node:22
+  script:
+    - corepack enable pnpm
+    - pnpm install --frozen-lockfile
+    - pnpm exec biome ci --error-on-warnings backend/
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event" || $CI_PIPELINE_SOURCE == "push"
+      changes:
+        - backend/**/*
+        - pnpm-lock.yaml
+
+build utils:
+  stage: build
+  image: docker:29
+  before_script:
+    - echo $CI_REGISTRY_PASSWORD | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE/utils:latest -f devops/Dockerfile-utils .
+    - docker push $CI_REGISTRY_IMAGE/utils:latest
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+    - if: $CI_MERGE_REQUEST_ID
+      changes:
+        - devops/Dockerfile-utils
+
+build image:
+  stage: build
+  image: docker:29
+  before_script:
+    - echo $CI_REGISTRY_PASSWORD | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
+    - docker buildx create --use --name builder --driver docker-container || true # create buildx builder for registry cache support
+  script:
+    - if [ $CI_COMMIT_REF_NAME = $CI_DEFAULT_BRANCH ]; then IMAGE_TAG=latest; else IMAGE_TAG=$CI_COMMIT_REF_SLUG; fi #if we're on main > tag as latest, otherwise tag as the branch slug
+    - |
+      docker buildx build \
+        -t $CI_REGISTRY_IMAGE:$IMAGE_TAG \
+        --cache-from=type=registry,ref=$CI_REGISTRY_IMAGE:cache \
+        --cache-to=type=registry,ref=$CI_REGISTRY_IMAGE:cache,mode=max \
+        --provenance=false \
+        --push .
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH || $CI_MERGE_REQUEST_ID #only runs on main or triggered by a merge request.
+
+.deploy_script: &deploy_script
+  stage: deploy
+  needs:
+    - build image
+  image: $CI_REGISTRY_IMAGE/utils:latest
+  before_script:
+  script:
+    # Authenticate to cluster
+    - echo $KUBECONFIG_B64 | base64 -d > /tmp/kubeconfig
+    - export KUBECONFIG=/tmp/kubeconfig
+    # Variables
+    - if [ "$CI_COMMIT_REF_NAME" = "$CI_DEFAULT_BRANCH" ]; then export IMAGE_TAG=latest; else export IMAGE_TAG=$CI_COMMIT_REF_SLUG; fi
+    - export STACK_NAME="${CI_PROJECT_NAME}-${CI_COMMIT_REF_SLUG}"
+    - if [ "$CI_COMMIT_REF_NAME" = "$CI_DEFAULT_BRANCH" ]; then export HOST="${CI_PROJECT_NAME}.${DOMAIN}"; else export HOST="${STACK_NAME}.${DOMAIN}"; fi
+    - if [ "$CI_COMMIT_REF_NAME" = "$CI_DEFAULT_BRANCH" ]; then export WEB_REPLICAS=2; else export WEB_REPLICAS=1; fi
+    # Secrets
+    - envsubst < devops/k8s/secrets.yaml | kubectl apply -n $NAMESPACE -f -
+    - |
+      kubectl create secret docker-registry registry-secret \
+        --docker-server=$CI_REGISTRY \
+        --docker-username=$DEPLOY_TOKEN_USER \
+        --docker-password=$DEPLOY_TOKEN_PASSWORD \
+        --namespace=$NAMESPACE \
+        --dry-run=client -o yaml | kubectl apply -f -
+    # Database (prod uses PVC, review branches use emptyDir)
+    - if [ "$CI_COMMIT_REF_NAME" = "$CI_DEFAULT_BRANCH" ]; then DB_MANIFEST=devops/k8s/db-prod.yml; else DB_MANIFEST=devops/k8s/db.yml; fi
+    - envsubst < $DB_MANIFEST | kubectl apply -n $NAMESPACE -f -
+    - if [ "$CI_COMMIT_REF_NAME" = "$CI_DEFAULT_BRANCH" ]; then export DB_KIND=statefulset; else export DB_KIND=deployment; fi
+    - kubectl rollout status ${DB_KIND}/${STACK_NAME}-db -n $NAMESPACE --timeout=120s
+    # Migration
+    - kubectl delete job/${STACK_NAME}-migrate -n $NAMESPACE --ignore-not-found
+    - envsubst < devops/k8s/migrate-job.yaml | kubectl apply -n $NAMESPACE -f -
+    - kubectl wait --for=condition=complete job/${STACK_NAME}-migrate -n $NAMESPACE --timeout=120s
+    # Web + ingress
+    - envsubst < devops/k8s/web.yml | kubectl apply -n $NAMESPACE -f -
+    - envsubst < devops/k8s/ingress.yml | kubectl apply -n $NAMESPACE -f -
+    - kubectl rollout restart deployment/${STACK_NAME}-web -n $NAMESPACE || true
+    - kubectl rollout status deployment/${STACK_NAME}-web -n $NAMESPACE --timeout=120s
+    # Monitoring
+    - envsubst '$STACK_NAME $NAMESPACE' < devops/k8s/monitoring.yaml | kubectl apply -n $NAMESPACE -f -
+    - echo "Deployed at https://${HOST}"
+
+deploy review:
+  <<: *deploy_script
+  environment:
+    name: review/$CI_COMMIT_REF_SLUG
+    url: https://$CI_PROJECT_NAME-$CI_COMMIT_REF_SLUG.$DOMAIN
+    on_stop: stop deploy
+  rules:
+    - if: $CI_MERGE_REQUEST_ID
+
+deploy production:
+  <<: *deploy_script
+  environment:
+    name: production
+    url: https://$CI_PROJECT_NAME.$DOMAIN
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+
+stop deploy:
+  stage: stop
+  allow_failure: true
+  image: $CI_REGISTRY_IMAGE/utils:latest
+  variables:
+    GIT_STRATEGY: none
+  before_script:
+    - echo $KUBECONFIG_B64 | base64 -d > /tmp/kubeconfig
+    - export KUBECONFIG=/tmp/kubeconfig
+  script:
+    - export STACK_NAME=$(echo "${CI_PROJECT_NAME}-${CI_COMMIT_REF_SLUG}")
+    - kubectl delete deployment/${STACK_NAME}-web deployment/${STACK_NAME}-db -n $NAMESPACE --ignore-not-found
+    - kubectl delete service/${STACK_NAME}-web service/${STACK_NAME}-db -n $NAMESPACE --ignore-not-found
+    - kubectl delete ingress/${STACK_NAME}-ingress -n $NAMESPACE --ignore-not-found
+    - kubectl delete secret/${STACK_NAME}-db-secret secret/${STACK_NAME}-app-secret -n $NAMESPACE --ignore-not-found
+    - kubectl delete job/${STACK_NAME}-migrate -n $NAMESPACE --ignore-not-found
+  environment:
+    name: review/$CI_COMMIT_REF_SLUG
+    action: stop
+  rules:
+    - if: $CI_MERGE_REQUEST_ID
+      when: manual

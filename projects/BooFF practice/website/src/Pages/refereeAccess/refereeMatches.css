@@ -1,0 +1,21 @@
+.refereeTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.refereeTable tr {
+    border: 1px solid #0d0606;
+}
+
+.refereeTable td {
+    padding:0.2rem;
+    border: 1px solid #000000;
+}
+
+.refereeInstance {
+    cursor: pointer;
+}
+
+.refereeInstance:hover {
+    background-color: #ead8d8;
+}

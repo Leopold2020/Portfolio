@@ -1,0 +1,78 @@
+.account-content{
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #c0f6ff;
+  align-items: center;
+  width: 10rem;
+  margin: auto;
+  float: left;
+}
+
+.admn-acc-div{
+  display: flex;
+  width: 10rem;
+}
+
+.acc-div {
+  display: flex;
+  flex-direction: column;
+  width: 10rem;
+  height: 10rem;
+  font-size: large;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.acc-button{
+  display: flex;
+  flex-direction: row;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.account-edit {
+  display: flex;
+  width: 2.4rem;
+  height: 1.6rem;
+  border: solid 1px #c0edff;
+  background-color: rgba(20, 20, 20, 0.5);
+  color: #c0f6ff;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: medium;
+}
+
+.acc-del {
+  display: flex;
+  width: 3.4rem;
+  height: 1.6rem;
+  border: solid 1px #c0edff;
+  background-color: rgba(20, 20, 20, 0.5);
+  color: #c0f6ff;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: medium;
+}
+
+.company-div{
+  margin-top: 2%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.company-text{
+  float: left;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #c0f6ff;
+  align-items: center;
+  /* margin-top: 2%; */
+  margin: 0.5rem;
+}

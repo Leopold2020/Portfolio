@@ -1,0 +1,192 @@
+.back-but{
+  width: 6rem;
+  height: 2.6rem;
+  margin-left: 1%;
+  margin-top: 1%;
+  border: solid 1px #c0edff;
+  background-color: rgba(20, 20, 20, 0.5);
+  font-size: large;
+  cursor: pointer;
+}
+
+.back-but-text{
+  text-decoration: none;
+  color: #c0f6ff;
+  padding: 0.6rem;
+}
+
+.create-form{
+  display: flex;
+  flex-direction: column;
+  width: 70rem;
+  /* height: 20%; */
+  height: 37rem;
+  margin-top: 10%;
+  margin-left: 2%;
+  border: solid 1px #c0edff;
+  background-color: rgba(20, 20, 20, 0.5);
+  color: #c0f6ff;
+  font-size: large;
+}
+
+.create-titles{
+  width: 72rem;
+  height: 2.6rem;
+  margin-top: 1%;
+  margin-left: 1%;
+  color: #c0f6ff;
+}
+
+.create-company{
+  width: 27rem;
+  height: 1.3rem;
+  margin-top: 0.87%;
+  margin-left: 0.7%;
+  background-color: rgba(20, 20, 20, 0.5);
+  border: solid 1px #c0edff;
+  color: #c0f6ff;
+}
+
+.create-date{
+  width: 7rem;
+  height: 1.3rem;
+  margin-top: 0.87%;
+  margin-left: 0.7%;
+  background-color: rgba(20, 20, 20, 0.5);
+  border: solid 1px #c0edff;
+  color: #c0f6ff;
+
+}
+
+.create-status{
+  /* width: 4rem; */
+  width: fit-content;
+  height: 1.3rem;
+  margin-top: 0.87rem;
+  margin-left: 0.7%;
+  background-color: rgba(20, 20, 20, 0.5);
+  border: solid 1px #c0edff;
+  color: #c0f6ff;
+}
+
+.contact{
+  display: flex;
+  width: 27rem;
+  height: 1rem;
+  margin-top: 0.5%;
+  margin-left: 2%;
+  padding: 0.5%;
+  border: solid 1px #c0edff;
+  background-color: rgba(20, 20, 20, 0.5);
+  color: #c0f6ff;
+}
+
+.detail-title{
+  width: 72rem;
+  height: 2.6rem;
+  margin-top: 5%;
+  margin-left: 1%;
+  color: #c0f6ff;
+}
+
+.create-details{
+  display: flex;
+  flex-direction: row;
+  width: 27rem;
+  height: 10rem;
+  margin-top: 0.87%;
+  margin-left: 1%;
+  background-color: rgba(20, 20, 20, 0.5);
+  border: solid 1px #c0edff;
+  color: #c0f6ff;
+  max-width: 27rem;
+  max-height: 10rem;
+}
+
+.submit-button{
+  width: 7rem;
+  height: 2.8rem;
+  margin-left: 88.4%;
+  margin-top: 19.3%;
+  border: solid 1px #c0edff;
+  background-color: rgba(20, 20, 20, 0.5);
+  color: #c0f6ff;
+  font-size: large;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+  .create-form{
+    width: 25rem;
+    height: 33rem;
+    margin: auto;
+    margin-top: 5%;
+  }
+
+  .create-titles{
+    width: 20rem;
+    height: 2.6rem;
+  }
+  
+  .create-company{
+    width: 15rem;
+    height: 1.3rem;
+  }
+  
+  .create-date{
+    width: 7rem;
+    height: 1.3rem;
+    margin-top: 5%;
+  }
+  
+  .create-status{
+    width: 4rem;
+    height: 1.3rem;
+    margin-top: 5%;
+  }
+  
+  .contact{
+    width: 15rem;
+    height: 1.2rem;
+  }
+  
+  .detail-title{
+    width: 72rem;
+    height: 2.6rem;
+    margin-top: 9%;
+  }
+  
+  .create-details{
+    min-width: 20rem;
+    min-height: 8rem;
+    max-width: 20rem;
+    max-height: 12rem;
+  }
+  
+  .submit-button{
+    margin: auto;
+    margin-top: 51%;
+    width: 7rem;
+    height: 2.8rem;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 1000px) {
+  .create-form{
+    width: 60rem;
+    height: 35rem;
+    margin: auto;
+    margin-top: 4%;
+  }
+
+  .submit-button{
+    margin-top: 20%;
+    margin-left: 85.6%;
+    width: 7rem;
+    height: 2.8rem;
+  }
+
+  .detail-title{
+    margin-top: 7%;
+  }
+}

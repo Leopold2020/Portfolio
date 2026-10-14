@@ -1,0 +1,39 @@
+{
+  "dependencies": {
+    "@fontsource-variable/google-sans-flex": "^5.2.3",
+    "@tailwindcss/vite": "^4.2.2",
+    "@tanstack/react-query": "^5.96.1",
+    "@tanstack/react-router": "^1.168.25",
+    "date-fns": "^4.1.0",
+    "embla-carousel-react": "^8.6.0",
+    "leaflet": "^1.9.4",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-hook-form": "^7.72.1",
+    "react-leaflet": "^5.0.0",
+    "tailwindcss": "^4.2.2",
+    "zod": "^4.3.6",
+    "zustand": "^5.0.12"
+  },
+  "devDependencies": {
+    "@tanstack/router-plugin": "^1.167.28",
+    "@types/leaflet": "^1.9.21",
+    "@types/node": "^24.12.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "typescript": "~5.9.3",
+    "vite": "^8.0.1"
+  },
+  "name": "frontend",
+  "private": true,
+  "scripts": {
+    "build": "tsc -b && vite build",
+    "dev": "vite",
+    "lint": "biome check",
+    "lint-format": "biome check --write --reporter=summary",
+    "preview": "vite preview"
+  },
+  "type": "module",
+  "version": "0.0.0"
+}

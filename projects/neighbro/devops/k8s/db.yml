@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${STACK_NAME}-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ${STACK_NAME}-db
+  template:
+    metadata:
+      labels:
+        app: ${STACK_NAME}-db
+    spec:
+      containers:
+        - name: db
+          image: postgres:18
+          env:
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  name: ${STACK_NAME}-db-secret
+                  key: POSTGRES_DB
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: ${STACK_NAME}-db-secret
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: ${STACK_NAME}-db-secret
+                  key: POSTGRES_PASSWORD
+          volumeMounts:
+            - name: pgdata
+              mountPath: /var/lib/postgresql
+      volumes:
+        - name: pgdata
+          emptyDir: {}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ${STACK_NAME}-db
+spec:
+  selector:
+    app: ${STACK_NAME}-db
+  ports:
+    - port: 5432
+      targetPort: 5432

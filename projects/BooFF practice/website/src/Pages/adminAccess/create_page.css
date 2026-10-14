@@ -1,0 +1,51 @@
+
+.create-div {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.create-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.create-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.create-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.create-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.create-button:hover {
+  background-color: #45a049;
+}
+
+.create-page-button {
+  color: #333;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.create-page-button:hover {
+  font-size: 1.55em;
+}
+
+  

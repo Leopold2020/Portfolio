@@ -1,0 +1,347 @@
+/* WikiParallel — restrained, serif, Wikipedia-like. Light mode only, no animation. */
+
+:root {
+  --ink: #202122;
+  --ink-soft: #54595d;
+  --rule: #c8ccd1;
+  --rule-soft: #eaecf0;
+  --paper: #ffffff;
+  --paper-tint: #f8f9fa;
+  --link: #3366cc;
+  --link-visited: #795cb2;
+  --accent: #36c;
+  --focus: #2a4b8d;
+  --max-width: 46rem;
+  --serif: "Georgia", "Times New Roman", "Liberation Serif", serif;
+  --sans: -apple-system, "Segoe UI", "Helvetica Neue", "Liberation Sans", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper-tint);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.6;
+}
+
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+  background: var(--paper);
+  min-height: 100vh;
+  border-inline: 1px solid var(--rule-soft);
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:visited {
+  color: var(--link-visited);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Masthead ---------------------------------------------------------------- */
+
+.masthead {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.masthead h1 {
+  font-size: 2.25rem;
+  font-weight: 400;
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.01em;
+}
+
+.tagline {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+}
+
+/* Search form ----------------------------------------------------------------- */
+
+.search {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+textarea,
+select {
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 0.55rem 0.65rem;
+  width: 100%;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 3.4rem;
+}
+
+.hint {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+#search-button {
+  align-self: flex-start;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--paper);
+  background: var(--accent);
+  border: 1px solid var(--focus);
+  border-radius: 2px;
+  padding: 0.55rem 1.3rem;
+  cursor: pointer;
+}
+
+#search-button:disabled {
+  background: var(--rule-soft);
+  color: var(--ink-soft);
+  border-color: var(--rule);
+  cursor: not-allowed;
+}
+
+/* Model download ------------------------------------------------------------ */
+
+.model-status {
+  margin-bottom: 2rem;
+  padding: 0.9rem 1rem;
+  background: var(--paper-tint);
+  border: 1px solid var(--rule-soft);
+  border-radius: 2px;
+}
+
+.model-status__text {
+  margin: 0 0 0.5rem;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.model-status__bar {
+  width: 100%;
+  height: 0.6rem;
+}
+
+/* Results -------------------------------------------------------------------- */
+
+.parallels-empty {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.field-group {
+  margin-bottom: 2rem;
+}
+
+.field-group__heading {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid var(--field-color, var(--rule));
+}
+
+.parallel-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.parallel {
+  border-left: 3px solid var(--rule-soft);
+  padding-left: 0.9rem;
+}
+
+.parallel__title {
+  font-size: 1.15rem;
+  font-weight: 400;
+  margin: 0 0 0.3rem;
+}
+
+.parallel__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 0.4rem;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+}
+
+.parallel__closeness {
+  color: var(--ink-soft);
+}
+
+.parallel__lead {
+  margin: 0;
+  color: var(--ink);
+}
+
+.field-tag {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.1rem 0.5rem;
+  border-radius: 2px;
+  border: 1px solid var(--field-color, var(--rule));
+  color: var(--ink);
+  background: var(--field-tint, var(--paper-tint));
+}
+
+/* Field colours — calm, low-saturation. Each Field owns a hue. */
+.field-tag--people,
+.field-group__heading--people {
+  --field-color: #a15c5c;
+  --field-tint: #f6ecec;
+}
+.field-tag--history,
+.field-group__heading--history {
+  --field-color: #9a7b4f;
+  --field-tint: #f5efe6;
+}
+.field-tag--geography,
+.field-group__heading--geography {
+  --field-color: #4f8a6b;
+  --field-tint: #e9f2ec;
+}
+.field-tag--arts,
+.field-group__heading--arts {
+  --field-color: #a2588c;
+  --field-tint: #f5eaf1;
+}
+.field-tag--philosophy-and-religion,
+.field-group__heading--philosophy-and-religion {
+  --field-color: #7a6aa8;
+  --field-tint: #eeebf5;
+}
+.field-tag--everyday-life,
+.field-group__heading--everyday-life {
+  --field-color: #b07d3c;
+  --field-tint: #f6efe4;
+}
+.field-tag--society-and-social-sciences,
+.field-group__heading--society-and-social-sciences {
+  --field-color: #4d7ca6;
+  --field-tint: #e8f0f6;
+}
+.field-tag--health-medicine-and-disease,
+.field-group__heading--health-medicine-and-disease {
+  --field-color: #b45b5b;
+  --field-tint: #f7eaea;
+}
+.field-tag--science,
+.field-group__heading--science {
+  --field-color: #3f8f8f;
+  --field-tint: #e6f1f1;
+}
+.field-tag--technology,
+.field-group__heading--technology {
+  --field-color: #5f7a8c;
+  --field-tint: #ecf0f3;
+}
+.field-tag--mathematics,
+.field-group__heading--mathematics {
+  --field-color: #8a7f4f;
+  --field-tint: #f2f0e6;
+}
+
+/* Show more --------------------------------------------------------------- */
+
+.show-more-wrap {
+  text-align: center;
+}
+
+#show-more {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--link);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+}
+
+#show-more:hover {
+  background: var(--paper-tint);
+}
+
+/* Colophon -------------------------------------------------------------------- */
+
+.colophon {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.colophon p {
+  margin: 0;
+}
+
+/* Narrow screens -------------------------------------------------------------- */
+
+@media (max-width: 34rem) {
+  .page {
+    padding: 1.5rem 1rem 2.5rem;
+  }
+  .masthead h1 {
+    font-size: 1.9rem;
+  }
+  #search-button {
+    align-self: stretch;
+    text-align: center;
+  }
+}

@@ -1,0 +1,263 @@
+.date-display {
+  display: flex;
+  justify-content: right;
+}
+
+.date-item{
+  font-size: large;
+  color: #c0f6ff;
+  margin-top: 0;
+  border-left: solid 1px #c0edff;
+  border-bottom: solid 1px #c0edff;
+  padding: 1rem;
+}
+
+.center {
+  width: 60%;
+  margin: auto;
+}
+
+.search-div{
+  display: flex;
+
+  align-items: center;
+  margin-bottom: 0.5rem;  /*använd inte procent i margin för då auto-anpassas det o kan krasha ihop*/
+
+}
+
+.search-bar{
+  width: 42ch;
+ 
+  border: solid 1px #c0edff;
+  border-right: solid 0px #c0edff;
+
+  background-color: rgba(20, 20, 20, 0.5);
+  color: #c0f6ff;
+  font-size: large;
+
+  border-radius: 1rem 0rem 0rem 1rem;
+  padding-inline: 0.8rem;
+  padding-block: 0.4rem;
+}
+
+.search-img{
+  width: 16px;
+  aspect-ratio: 1;
+  color: #c0f6ff;
+  font-size: large;
+}
+
+::placeholder{
+  color: #c0f6ff;
+  opacity: 1;
+}
+
+.search-button{
+  border-left: solid 0px #c0edff;
+  border: solid 1px #c0edff;
+  background-color: rgba(20, 20, 20, 0.5);
+  color: #c0f6ff;
+  font-size: large;
+  cursor: pointer;
+  border-radius: 0rem 1rem 1rem 0;
+  padding-inline: 0.8rem;
+  padding-block: 0.4rem;
+}
+
+.create-button{
+  padding-inline: 0.8rem;
+  padding-block: 0.4rem;
+  border-radius: 16px;
+  margin-block: 0.5rem;
+  border: solid 1px #c0edff;
+  background-color: rgba(20, 20, 20, 0.5);
+  color: #c0f6ff;
+  font-size: large;
+  cursor: pointer;
+}
+
+.list-title{
+  font-size: x-large;
+  color: #c0f6ff;
+  margin-bottom: 1rem;
+}
+
+.list-item{
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  align-items: center;
+  margin-bottom: 0.3rem;
+  padding: 0.5%;
+  border: solid 1px #c0edff;
+  background-color: rgba(20, 20, 20, 0.5);
+}
+
+.name-div{
+  display: flex;
+  width: 30%;
+  gap: 1.5rem;
+  margin-left: 1rem;
+}
+
+.rest-div{
+  display: flex;
+  width: 70%;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.item-name{
+  font-size: large;
+  color: #c0f6ff;
+}
+
+.home-date{
+  font-size: large;
+  color: #c0f6ff;
+  align-self: center;
+}
+
+.detail-but{
+  display: flex;
+  width: 7.3rem;
+  height: 2rem;
+  border: solid 1px #c0edff;
+  background-color: rgba(20, 20, 20, 0.5);
+  font-size: large;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  justify-self: right;
+}
+
+.detail-but-text{
+  color: #c0f6ff;
+  text-decoration: none;
+}
+
+.item-edit{
+  display: flex;
+  width: 3.4rem;
+  height: 2rem;
+  border: solid 1px #c0edff;
+  background-color: rgba(20, 20, 20, 0.5);
+  font-size: large;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  
+}
+
+.edit-text{
+  text-decoration: none;
+  color: #c0f6ff;
+}
+
+.status{
+  width: 20%;
+  height: 1vh;
+  border-radius: 50px;
+  align-self: center;
+}
+
+@media screen and (max-width: 910px) and (min-width: 760px) {
+  .list-item{
+    width: 30rem;
+    height: 5rem;
+  }
+
+  .detail-but{
+    width: 5rem;
+    height: 3rem;
+  }
+  
+  .item-edit{
+    width: 2.8rem;
+    height: 3rem;
+  }
+
+  .edit-text{
+    padding: 0.6rem;
+  }
+
+}
+
+@media screen and (max-width: 760px) and (min-width: 600px) {
+
+  .center {
+    width: 90%;
+  }
+
+  .list-item{
+    width: 30rem;
+    height: 5rem;
+    margin: auto;
+  }
+
+  .detail-but{
+    width: 5rem;
+    height: 3rem;
+  }
+  
+  .item-edit{
+    width: 2.8rem;
+    height: 3rem;
+  }
+
+  .edit-text{
+    padding: 0.6rem;
+  }
+
+}
+
+@media screen and (max-width: 600px) and (min-width: 300px) {
+
+  .center {
+    width: 80%;
+    /* margin: auto; */
+  }
+
+  .list-item{
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+    height: 14rem;
+    margin: auto;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .name-div{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 13rem;
+    align-items: center;
+  }
+
+  .rest-div{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 10rem;
+    align-items: center;
+  }
+
+  .detail-but{
+    width: 5rem;
+    height: 3rem;
+  }
+  
+  .item-edit{
+    width: 2.8rem;
+    height: 3rem;
+  }
+
+  .edit-text{
+    padding: 0.6rem;
+  }
+
+}

@@ -1,0 +1,200 @@
+.booff-logga{
+  display: block;
+  width: 10rem;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 2rem;
+  width: 36rem;
+  background: rgb(199, 199, 199);
+  padding-bottom: 2%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.header {
+  width: 20rem;
+  margin: auto;
+}
+
+.text {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.underline{
+  width: 4.6rem;
+  height: 0.38rem;
+  margin: auto;
+  margin-top: 1rem;
+  background: rgb(0, 0, 0);
+  border-radius: 9px;
+}
+
+.inputs {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 26rem;
+  height: 2.5rem;
+  box-shadow: 0 2px rgba(0, 0, 0, 0.35);
+  padding: 1rem;
+  align-items: baseline;
+}
+
+.input img {
+  margin: 0% 6.4%;
+}
+
+.input input {
+  height: 3.125rem;
+  width: 26rem;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: black;
+  font-size: 19px;
+}
+
+.submit-container {
+  display: flex;
+  margin: 10% auto;
+}
+
+.div-status{
+  display: flex;
+  justify-content: center;
+  height: 5rem;
+  align-self: center;
+
+}
+
+.role{
+  display: flex;
+  text-align-last: center;
+  height: 4rem;
+  width: 8rem;
+  color: rgb(0, 0, 0);
+  border: solid 2px rgb(0, 0, 0);
+  background-color: rgba(160, 160, 160);
+  border-radius: 50px;
+  font-size: 19px;
+  cursor: pointer;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 9rem;
+  height: 3.6rem;
+  color: rgb(0, 0, 0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  background-color: rgba(165, 165, 165, 0.5);
+  border-radius: 50px;
+  font-size: 19px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+}
+
+.submit:hover {
+  background-color: #99092C;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 25rem;
+    height: 34rem;
+  }
+  
+  .input {
+    width: 16rem;
+    height: 3rem;
+  }
+  
+  .input input {
+    width: 16rem;
+    font-size: 15px;
+  }
+  .role{
+    height: 3rem;
+    width: 6rem;
+    font-size: 15px;
+  }
+  
+  .submit{
+    width: 6rem;
+    height: 2.5rem;
+    font-size: 15px;
+  }
+
+}
+
+@media screen and (max-width: 460px) {
+
+  .booff-logga{
+    display: block;
+    width: 7rem;
+    margin: auto;
+    margin-top: 2rem;
+  }
+  
+  .text {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 38px;
+    font-weight: 600;
+  }
+
+  .underline{
+    width: 3.6rem;
+    height: 0.24rem;
+    margin: auto;
+    margin-top: 1rem;
+    background: rgb(0, 0, 0);
+    border-radius: 10px;
+  }
+
+  .container {
+    width: 20rem;
+    height: 26rem;
+  }
+  
+  .input {
+    width: 13rem;
+    height: 2.5rem;
+  }
+  
+  .input input {
+    width: 10rem;
+    font-size: 13px;
+  }
+  .role{
+    height: 3rem;
+    width: 6rem;
+    font-size: 15px;
+  }
+  
+  .submit{
+    width: 6rem;
+    height: 2.5rem;
+    font-size: 15px;
+  }
+
+}

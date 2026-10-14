@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ${STACK_NAME}-migrate
+spec:
+  ttlSecondsAfterFinished: 60
+  template:
+    spec:
+      imagePullSecrets:
+        - name: registry-secret
+      restartPolicy: Never
+      containers:
+        - name: migrate
+          image: ${CI_REGISTRY_IMAGE}:${IMAGE_TAG}
+          imagePullPolicy: Always
+          command: ["/bin/sh", "-c", "/app/backend/node_modules/.bin/drizzle-kit push --force"]
+          workingDir: /app/backend
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: ${STACK_NAME}-db-secret
+                  key: DATABASE_URL

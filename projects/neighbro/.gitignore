@@ -1,0 +1,96 @@
+# OS Specific
+
+## macOS
+.DS_Store
+__MACOSX/
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+## Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+nohup.out
+
+## Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+Desktop.ini
+$RECYCLE.BIN/
+
+# Dependencies
+node_modules
+
+# Environment files (uncommented so you can just run the project)
+.env
+.env.local
+.env.development
+.env.production
+!.env.example
+!.env.template
+
+# Build
+dist
+build
+
+# Cache
+.cache
+.npm
+
+# Logs
+logs
+*.log
+
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+!*.code-workspace
+
+# Zed-editor
+.zed/*
+
+# Linting and formatting tools (not used in this project)
+.prettier*
+prettier.config.*
+.eslint*
+eslint.config.*
+.stylelintcache
+
+# TypeScript
+*.tsbuildinfo
+
+# Vite
+
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+.vite/
+
+# Scripts
+scripts
+!backend/scripts
+!devops/scripts/
+drizzle

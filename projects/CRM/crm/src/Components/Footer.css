@@ -1,0 +1,17 @@
+.footer{
+  height: 8rem;
+  margin-top: 4rem;
+  background-color: #333;
+  width: 100%;
+}
+  
+.footer-item{
+  display: flex;
+  flex-direction: row;
+  color: #c0f6ff;
+  border: solid 2px #c0edff;
+  width: 10rem;
+  height: 3rem;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,66 @@
+.links {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(199, 199, 199);
+  position: sticky;
+  top: 0;
+  border-bottom: solid 1px #99092C;
+}
+
+.links li{
+    float: left;
+    border: 2px hidden;
+}
+
+.links li a {
+    display: block;
+    color: #99092C;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.links li a:hover:not(.active) {
+    background-color: rgb(180, 180, 180);
+}
+
+.link {
+  float: left;
+}
+
+.link a {
+  display: block;
+  color: #99092C;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.link a:hover:not(.active) {
+  background-color: rgb(215, 215, 215);
+}
+
+.active {
+  background-color: rgb(153, 9, 44, 0.3);
+  border: #8e5765 2px solid;
+}
+
+.account {
+  /* float: right; */
+  /* align-self: flex-end; */
+  /* margin-left: auto; */
+  /* justify-self: flex-end; */
+  /* flex-flow: row-reverse; */
+  /* flex: 1; */
+  justify-self: flex-end;
+}
+
+@media screen and (max-width: 600px) {
+  .links {
+    flex-direction: column;
+    position: relative;
+  }
+}

@@ -1,0 +1,60 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+:root {
+  --neighbro-radial: conic-gradient(
+    from -47.73deg at 50% 50%,
+    #ff008e 0deg,
+    #ff000e 118.8deg,
+    #f100ff 239.76deg,
+    #ff008e 360deg
+  );
+  /* To make sure browser uses light color scheme for inputs*/
+  /* mainly for the date picker, doesn't seem to work for that on firefox */
+  color-scheme: light;
+}
+
+/* doesn't work on Firefox but it displays the icon using white color anyways*/
+input::-webkit-calendar-picker-indicator {
+  /* since we have a light color-scheme it makes the icon dark, so we invert it to get a white icon*/
+  filter: invert(1);
+}
+
+@theme {
+  --font-sans: "Google Sans Flex Variable", sans-serif;
+}
+
+@utility bg-neighbro-radial-full {
+  background: var(--neighbro-radial) border-box;
+}
+
+@utility bg-neighbro-radial-white {
+  background:
+    linear-gradient(white, white) padding-box,
+    var(--neighbro-radial) border-box;
+}
+
+html,
+body {
+  overscroll-behavior: none;
+}
+
+body:has([data-avatar-picker]) nav {
+  display: none;
+}
+
+.leaflet-tooltip.event-tooltip {
+  padding: 4px 10px;
+  font-weight: 400;
+  letter-spacing: -0.011em;
+  background: white;
+  border: none;
+  border-radius: 50px;
+  box-shadow:
+    inset 0 4px 4px rgba(255, 255, 255, 0.35),
+    0 0 10px rgba(0, 0, 0, 0.22);
+}
+
+.leaflet-tooltip.event-tooltip::before {
+  display: none;
+}

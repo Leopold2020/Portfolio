@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "es2024"
+    ],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "outDir": "dist",
+    "sourceMap": true,
+    "types": [
+      "node"
+    ]
+  },
+  "extends": "../tsconfig.json",
+  "include": [
+    "drizzle.config.ts",
+    "src"
+  ],
+  "resolveJsonModule": true
+}

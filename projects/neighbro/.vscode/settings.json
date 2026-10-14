@@ -1,0 +1,36 @@
+{
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true
+  },
+  "chat.disableAIFeatures": true,
+  "chat.tools.todos.showWidget": false,
+  "editor.autoIndent": "none",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.biome": "explicit",
+    "source.fixAll.markdownlint": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.formatOnSave": true,
+  "explorer.compactFolders": false,
+
+  "files.readonlyInclude": {
+    "**/routeTree.gen.ts": true
+  },
+  "files.trimTrailingWhitespace": true,
+  "files.watcherExclude": {
+    "**/routeTree.gen.ts": true
+  },
+  "html.format.extraLiners": "none",
+  "js/ts.tsdk.path": "frontend/node_modules/typescript/lib",
+  "search.exclude": {
+    "**/routeTree.gen.ts": true
+  },
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.showTabs": "multiple",
+  "workbench.editorAssociations": {
+    "*.svg": "default"
+  }
+}

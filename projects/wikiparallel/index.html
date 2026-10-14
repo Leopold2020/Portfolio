@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WikiParallel</title>
+    <meta
+      name="description"
+      content="Type a problem in plain language and get Wikipedia articles from unrelated fields that describe the same underlying problem."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./src/main.js"></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="masthead">
+        <h1>WikiParallel</h1>
+        <p class="tagline">
+          Describe a problem in plain language. Get Wikipedia articles from
+          other fields that describe the same underlying problem, so you can
+          borrow ideas across disciplines.
+        </p>
+      </header>
+
+      <main>
+        <form id="search-form" class="search" novalidate>
+          <div class="field">
+            <label for="challenge">Your Challenge</label>
+            <textarea
+              id="challenge"
+              name="challenge"
+              rows="3"
+              maxlength="300"
+              placeholder="e.g. handling a sudden surge of users without the system falling over"
+              aria-describedby="challenge-hint"
+            ></textarea>
+            <p id="challenge-hint" class="hint">
+              Write it as a short problem statement — at least three words.
+            </p>
+          </div>
+
+          <div class="field">
+            <label for="home-field">Home Field</label>
+            <select
+              id="home-field"
+              name="homeField"
+              aria-describedby="home-field-hint"
+            >
+              <option value="" selected>
+                Choose the field your problem already belongs to…
+              </option>
+            </select>
+            <p id="home-field-hint" class="hint">
+              Articles in this field are skipped, so you get the non-obvious
+              parallels.
+            </p>
+          </div>
+
+          <button type="submit" id="search-button" disabled>
+            Find Parallels
+          </button>
+        </form>
+
+        <div
+          id="model-status"
+          class="model-status"
+          role="status"
+          aria-live="polite"
+          hidden
+        >
+          <p id="model-status-text" class="model-status__text">
+            Downloading the embedding model (first visit only)…
+          </p>
+          <progress id="model-status-bar" class="model-status__bar" max="100"></progress>
+        </div>
+
+        <section
+          id="parallels"
+          class="parallels"
+          aria-live="polite"
+          aria-busy="false"
+        >
+          <p id="parallels-empty" class="parallels-empty">
+            Your Parallels will appear here, grouped by field.
+          </p>
+        </section>
+
+        <div class="show-more-wrap">
+          <button type="button" id="show-more" hidden>Show 6 more</button>
+        </div>
+      </main>
+
+      <footer class="colophon">
+        <p>
+          Article text from Wikipedia, licensed
+          <a
+            href="https://creativecommons.org/licenses/by-sa/4.0/"
+            rel="license noopener"
+            target="_blank"
+            >CC BY-SA</a
+          >.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
